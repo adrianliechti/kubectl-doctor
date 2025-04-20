@@ -28,7 +28,7 @@ func init() {
 	model := os.Getenv("OPENAI_MODEL")
 
 	if model == "" {
-		model = "gpt-4o-mini"
+		model = "gpt-4.1-mini"
 	}
 
 	flag.StringVar(&namespace, "namespace", "", "namespace to analyze")
@@ -55,10 +55,11 @@ func main() {
 
 				Model: openaiModel,
 
-				MaxTokens:   2048,
+				MaxTokens:   16384,
 				Temperature: 0.7,
-				TopP:        0.5,
-				TopK:        50,
+
+				TopP: 0.5,
+				TopK: 50,
 			},
 		},
 	}
